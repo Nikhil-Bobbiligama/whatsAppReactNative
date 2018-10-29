@@ -1,0 +1,54 @@
+.fabadd{
+    position: absolute;
+    width: 20;
+    height: 20;
+    align-items: center;
+    justify-content: center;
+    left: 40;
+    top: 40;
+    background-color: #25D366;
+    border-radius: 30;
+   
+};
+.fabIcon {
+    font-size: 20;
+    color: white;
+};
+
+/* fabcamera: {
+    position: 'absolute',
+    width: 55,
+    height: 55,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 20,
+    bottom: 20,
+    backgroundColor: '#25D366',
+    borderRadius: 30,
+    elevation: 8
+},
+fabpencil: {
+    position: 'absolute',
+    width: 55,
+    height: 55,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 20,
+    bottom: 85,
+    backgroundColor: '#25D366',
+    borderRadius: 30,
+    elevation: 8
+},
+fab: {
+    position: 'absolute',
+    width: 55,
+    height: 55,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 20,
+    bottom: 20,
+    backgroundColor: '#25D366',
+    borderRadius: 30,
+    elevation: 8
+},
+ */
