@@ -238,7 +238,7 @@ export default class Status extends Component {
 
                                     <View style={{ width: 80, backgroundColor: "white", height: 70 }}><View style={{
                                         borderWidth: 2,
-                                        borderColor: '#25D366',
+                                        borderColor: '#19BE9C',
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                         width: 60,
@@ -312,16 +312,29 @@ export default class Status extends Component {
                                 <View style={{ marginTop: 10 }}>
 
                                     <View style={{ width: 80, backgroundColor: "white", height: 70 }}><View >
+                                    <View style={{
+                                        borderWidth: 2,
+                                        borderColor: '#D3D3D3',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        width: 60,
+                                        marginLeft: 10,
+
+                                        height: 60,
+                                        marginTop: 5,
+
+                                        borderRadius: 100,
+                                    }} >
                                         <Image style={{
                                             borderWidth: 1,
                                             borderColor: '#F4F0F0',
                                             alignItems: 'center',
                                             justifyContent: 'center',
                                             width: 55,
-                                            marginLeft: 10,
+
 
                                             height: 55,
-                                            marginTop: 5,
+
 
                                             borderRadius: 100,
                                         }}
@@ -331,6 +344,7 @@ export default class Status extends Component {
                                             //     uri: item.displayPic
                                             // }} 
                                             alt="please wait" />
+                                            </View>
                                     </View></View>
                                     <View style={{
 
@@ -374,7 +388,7 @@ export default class Status extends Component {
                             renderItem={({ item }) =>
                                 <View style={{ marginTop: 10 }}>
 
-                                    <View style={{ width: 80, backgroundColor: "white", height: 70 }}><View style={{
+                                    <View style={{ width: 80, backgroundColor: "white", height: 70,opacity:.5 }}><View style={{
                                         borderWidth: 5,
                                         borderColor: 'white',
                                         alignItems: 'center',
@@ -418,13 +432,13 @@ export default class Status extends Component {
                                         position: "absolute",
                                         height: 70,
                                         backgroundColor: '#EEECEC',
-
+                                        
 
 
                                     }}>
                                         <View style={{ height: "99%", width: "100%" }}>
                                             <View style={{ backgroundColor: "white", width: "65%", height: "45%" }}>
-                                                <Text style={{ fontWeight: "bold", marginTop: 4 }}> {item.contactName}</Text>
+                                                <Text style={{ fontWeight: "bold", marginTop: 4,opacity:.5 }}> {item.contactName}</Text>
                                             </View>
                                             <View style={{ backgroundColor: "white", height: "45%", width: "35%", marginLeft: "65%", position: "absolute" }}>
                                                 <Text style={{ fontWeight: "normal", fontSize: 13, marginTop: 3, textAlign: "right", opacity: 0.5, paddingTop: 5 }}> </Text>

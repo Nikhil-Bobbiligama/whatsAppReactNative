@@ -1,8 +1,12 @@
 
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/dist/MaterialCommunityIcons';
+import Icon5 from 'react-native-vector-icons/dist/Entypo';
 
+
+import { withNavigation } from 'react-navigation';
 import Icon2 from 'react-native-vector-icons/dist/FontAwesome';
+import Icon3 from 'react-native-vector-icons/dist/FontAwesome5';
 import { Container, Header, Tab, Tabs, TabHeading, Text, Footer, FooterTab, Platform, View, Row } from 'native-base';
 import dhonidp from './images/dhonidp.jpeg'
 import adbdp from './images/adbdp.jpeg'
@@ -10,9 +14,10 @@ import viratdp from './images/viratdp.jpeg'
 import salmandp from './images/salmandp.jpeg'
 import maheshdp from './images/maheshdp.jpeg'
 import addmessage from './images/addmessage.png'
-
+import smiley from './images/smiley3.png'
 import chatbox from './images/chatbox.png'
-
+import ticks from './images/2ticks.png'
+import blueticks from './images/whatsapp-blue-ticks.png'
 import search from './images/search.png'
 import menu from './images/more.png'
 import { createStackNavigator } from 'react-navigation';
@@ -26,7 +31,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         right: 20,
-        bottom: 20,
+        bottom: 18,
         backgroundColor: '#25D366',
         borderRadius: 30,
         elevation: 8
@@ -69,7 +74,7 @@ class ChatScreen extends Component {
             {
                 contactName: "Salman",
                 message: "hii ",
-                time: "1:45 Pm",
+                time: "1:45 PM",
                 id: 4,
                 number: 9491903177,
                 displayPic: salmandp,
@@ -109,7 +114,7 @@ class ChatScreen extends Component {
             {
                 contactName: "Salman",
                 message: "hii ",
-                time: "1:45 Pm",
+                time: "1:45 PM",
                 id: 4,
                 number: 9491903177,
                 displayPic: salmandp,
@@ -149,7 +154,7 @@ class ChatScreen extends Component {
             {
                 contactName: "Salman",
                 message: "hii ",
-                time: "1:45 Pm",
+                time: "1:45 PM",
                 id: 4,
                 number: 9491903177,
                 displayPic: salmandp,
@@ -189,7 +194,7 @@ class ChatScreen extends Component {
             {
                 contactName: "Salman",
                 message: "hii ",
-                time: "1:45 Pm",
+                time: "1:45 PM",
                 id: 4,
                 number: 9491903177,
                 displayPic: salmandp,
@@ -229,7 +234,7 @@ class ChatScreen extends Component {
             {
                 contactName: "Salman",
                 message: "hii ",
-                time: "1:45 Pm",
+                time: "1:45 PM",
                 id: 4,
                 number: 9491903177,
                 displayPic: salmandp,
@@ -260,7 +265,7 @@ class ChatScreen extends Component {
     getContacts(displaypic, displayname) {
 
         const { navigate } = this.props.navigation;
-        navigate('Contacts', { pic: displaypic, name: displayname });
+        navigate('Chatbox', { pic: displaypic, name: displayname });
         // navigate('ViewStudent', { id: id, sname: name, sage: age, semail: email });
 
 
@@ -279,7 +284,7 @@ class ChatScreen extends Component {
         return (
             <Container style={{}}>
                 <View>
-                    <Modal style={{ height: 60, width: 60, backgroundColor: "red" }}
+                    {/* <Modal style={{ height: 60, width: 60, backgroundColor: "red" }}
                         animationType="fade"
                         visible={this.state.modalvisible}
                         transparent={true}
@@ -306,16 +311,18 @@ class ChatScreen extends Component {
                                 </View>
                             </View>
                         </TouchableHighlight>
-                    </Modal>
+                    </Modal> */}
                     <FlatList
 
                         data={this.state.a}
+                        
                         renderItem={({ item }) =>
-                            <View style={{ marginTop: 10 }}>
+                        
+                            <View style={{ marginTop: 10,marginRight:5 }}>
                                 <TouchableNativeFeedback onPress={(e) => this.imageview(item.displayPic, e)} >
 
 
-                                    <View style={{ width: 80, backgroundColor: "white", height: 70 }}><View >
+                                    <View style={{ width: 80, backgroundColor: "white", height: 67 }}><View >
                                         <Image style={{
                                             borderWidth: 1,
                                             borderColor: '#F4F0F0',
@@ -352,21 +359,22 @@ class ChatScreen extends Component {
 
 
                                 }}>
-                                    <TouchableOpacity onPress={this.getContacts.bind(this, item.displayPic, item.contactName)} style={{ width: "100%" }} >
+                                    <TouchableNativeFeedback onPress={this.getContacts.bind(this, item.displayPic, item.contactName)} style={{ width: "100%" }} >
 
-                                        <View style={{ height: "99%", width: "100%" }}>
+                                        <View style={{ height: "98%", width: "100%" }}>
                                             <View style={{ backgroundColor: "white", width: "65%", height: "45%" }}>
-                                                <Text style={{ fontWeight: "bold", marginTop: 4 }}> {item.contactName}</Text>
+                                                <Text style={{ fontFamily:"HelveticaNeue",fontWeight: "bold",color:"#3A3A3A", marginTop: 4 }}> {item.contactName}</Text>
                                             </View>
                                             <View style={{ backgroundColor: "white", height: "45%", width: "35%", marginLeft: "65%", position: "absolute" }}>
-                                                <Text style={{ fontWeight: "normal", fontSize: 13, marginTop: 3, textAlign: "right", opacity: 0.5, paddingTop: 5 }}> {item.time}</Text>
+                                                <Text style={{ fontFamily:"HelveticaNeue",fontWeight: "normal", fontSize: 12, marginTop: 3, textAlign: "right", opacity: 0.5, paddingTop: 5 }}> {item.time}</Text>
                                             </View>
-                                            <View style={{ backgroundColor: "white", height: "55%", width: "100%", position: "absolute", position: "relative" }}>
-                                                <Text style={{ fontWeight: "normal", opacity: 0.5 }}>  {item.message}</Text>
+                                            <View style={{ backgroundColor: "white", height: "55%", width: "100%", position: "absolute", position: "relative",paddingTop:2 }}>
+                                                <View style={{backgroundColor:"white",height:25,width:20}}><Image style={{width:17,height:15,marginTop:4,opacity:0.5,marginLeft:8}} source={ticks} /></View>
+                                                <Text style={{ position:"absolute",fontFamily:"HelveticaNeue",fontWeight: "normal", opacity: 0.5,marginLeft:25 }}> bye {item.contactName}</Text>
                                             </View>
 
                                         </View>
-                                    </TouchableOpacity>
+                                    </TouchableNativeFeedback>
                                 </View>
                             </View>
 
@@ -394,212 +402,289 @@ class ChatScreen extends Component {
         );
     }
 }
-class ContactScreen extends Component {
-    constructor(props) {
-        super(props);
-        const { navigation } = this.props;
-        const pic = navigation.getParam('pic', 'NO-ID');
-        const name = navigation.getParam('name', 'NO-ID');
+// class ContactScreen extends Component {
+//     constructor(props) {
+//         super(props);
+//         const { navigation } = this.props;
+//         const pic = navigation.getParam('pic', 'NO-ID');
+//         const name = navigation.getParam('name', 'NO-ID');
 
-        this.state = {
-            modalvisible: true,
-            modalimage: "",
-            displayname: name,
-            displaypic: pic,
-            newmessage: "",
+//         this.state = {
+//             modalvisible: true,
+//             modalimage: "",
+//             displayname: name,
+//             displaypic: pic,
+//             newmessage: "",
+//             time: "10:04",
+//             keyboardicon: "microphone",
 
-        }
+//             chats: [
+//                 {
+//                     message: "hey whatsapp",
+//                     backcolor: "white",
+//                     viewalign: "flex-start",
+//                     imgticks: " ",
+//                     time: "9:45 PM",
+//                     tickswidth: 0,
 
-        this.imageview = this.imageview.bind(this);
-    }
-    setModalVisible(visible) {
-        this.setState({
-            modalvisible: visible,
-        })
-    }
-    imageview(imagesrc, e) {
-        this.setState({ modalvisible: true, modalimage: imagesrc });
-    }
-    getContacts() {
+//                 },
+//                 {
+//                     message: "hi ,after a long time....! how are you  ?",
+//                     backcolor: "#dcf8c6",
+//                     viewalign: "flex-end",
+//                     imgticks: blueticks,
+//                     tickswidth: 15,
+//                     time: "9:45 PM"
 
-        const { navigate } = this.props.navigation;
-        navigate('Contacts');
+//                 },
+//                 {
+//                     message: "Iam fine, how are you??",
+//                     backcolor: "white",
+//                     viewalign: "flex-start",
+//                     tickswidth: 0,
+//                     time: "9:45 PM"
 
-    }
-    messageread() {
-        return "hello";
-    }
+//                 },
+//                 {
+//                     message: "Iam fine too, shall we go for a movie  ??",
+//                     backcolor: "#dcf8c6",
+//                     viewalign: "flex-end",
+//                     imgticks: blueticks,
+//                     tickswidth: 15,
+//                     time: "9:46 PM"
+//                 },
+//                 {
+//                     message: "Yeah, Which one and when ?",
+//                     backcolor: "white",
+//                     viewalign: "flex-start",
+//                     tickswidth: 0,
+//                     time: "9:46 PM"
+//                 },
+//                 {
+//                     message: "******* movie,if you are free we will go tomorrow. I have seen the reviews, it got some good rating..!",
+//                     backcolor: "#dcf8c6",
+//                     viewalign: "flex-end",
+//                     imgticks: blueticks,
+//                     tickswidth: 15,
+//                     time: "9:47 PM"
+//                 },
+//                 {
+//                     message: "ok, will meet you tomorrow, bye ",
+//                     backcolor: "white",
+//                     viewalign: "flex-start",
+//                     tickswidth: 0,
+//                     time: "9:47 PM"
+//                 },
+//                 {
+//                     message: "bye " + name,
+//                     backcolor: "#dcf8c6",
+//                     viewalign: "flex-end",
+//                     imgticks: ticks,
+//                     tickswidth: 15,
+//                     time: "9:47 PM"
+//                 },
+//             ]
+//         }
 
-    ////////////////////////////////
-    // takePicture() { this.camera.capture() .then((data) => console.log(data)) .catch(err => console.error(err)); }
-    static navigationOptions = {
-        title: "Watsapp"
-    }
-    render() {
-        return (
+//         this.imageview = this.imageview.bind(this);
+//     }
+//     setModalVisible(visible) {
+//         this.setState({
+//             modalvisible: visible,
+//         })
+//     }
+//     imageview(imagesrc, e) {
+//         this.setState({ modalvisible: true, modalimage: imagesrc });
+//     }
+//     getContacts() {
 
-            <Modal style={{ height: "100%", width: "100%", backgroundColor: "red" }}
-                animationType="fade"
-                visible={this.state.modalvisible}
-                transparent={true}
-                onRequestClose={() => {
-                    // Alert.alert("choose to close modal");
-                    this.setState({ modalvisible: false })
-                    this.props.navigation.goBack();
+//         const { navigate } = this.props.navigation;
+//         navigate('Contacts');
 
-                }}>
+//     }
+//     messageread() {
+//         return "hello";
+//     }
+//     backtochat() {
+//         this.setState({ modalvisible: false })
+//         this.props.navigation.goBack();
+//     }
+//     sendmessage(){
+//         //  let x= this.state.newmessage.length ;
+//         //  if(x===0)
+//         //  this.setState({keyboardicon:"microphone"})
+//        var x= this.state.newmessage;
+//     //    if(x==null)
+//     //    {
+//     //     this.setState({ keyboardicon: "microphone" });
+//     //    }
+//     //    else
+//            this.setState({ keyboardicon: "send" });
+                                           
+//     }
+//     ////////////////////////////////
+//     // takePicture() { this.camera.capture() .then((data) => console.log(data)) .catch(err => console.error(err)); }
+//     static navigationOptions = {
+//         title: "Watsapp"
+//     }
+//     render() {
+//         return (
 
+//             <Modal style={{ height: "100%", width: "100%", backgroundColor: "red", flex: 1 }}
+//                 animationType="fade"
+//                 visible={this.state.modalvisible}
+//                 transparent={true}
+//                 onRequestClose={() => {
+//                     // Alert.alert("choose to close modal");
+//                     this.setState({ modalvisible: false })
+//                     this.props.navigation.goBack();
 
-
-                <View style={{ height: "100%", width: "100%", backgroundColor: "white" }}>
-
-                    <View style={{
-                        backgroundColor: "#075e54",
-                        flexDirection: 'row',
-                        width: "100%",
-                        justifyContent: 'space-between',
-                    }}>
-                        {/* <View style={{width: 150, height: 50, backgroundColor: 'powderblue'}}></View> */}
-                        <View style={{ width: 150, height: 50, backgroundColor: '#075e54' }}>
-                            <Icon style={{ marginTop: 10 }} name="keyboard-backspace" size={27} color="#FFF" />
-                            <Image style={{
-                                borderWidth: 0,
-                                borderColor: '#F4F0F0',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                width: 37,
-                                marginLeft: 10,
-
-                                height: 37,
-                                marginTop: 7,
-                                marginLeft: 27,
-                                position: "absolute",
-                                borderRadius: 100,
-                            }}
-                                source={this.state.displaypic}
-                                // source=
-                                // {{
-                                //     uri: item.displayPic
-                                // }} 
-                                alt="please wait" />
-                            <Text style={{ marginLeft: 75, paddingTop: 10, fontSize: 16, width: "60%", fontWeight: "bold", color: "white", position: "absolute" }}>{this.state.displayname}</Text>
-
-                        </View>
-
-
-                        <View style={{ width: 140, height: 50, backgroundColor: '#075e54' }}>
-                            <View style={{ height: 40, width: 100, paddingTop: 12, paddingRight: 10 }}>
-                                <Icon style={{ height: 30, width: 30, paddingRight: 2, marginTop: 0 }} name="video" size={30} color="#FFF"></Icon>
-                                <Icon style={{ height: 27, width: 27, marginTop: 15, position: "absolute", marginLeft: 60 }} name="phone" size={27} color="#FFF" ></Icon>
-                                <Image style={{ height: 22, width: 22, position: "absolute", marginTop: 18, marginLeft: 110 }} source={menu}></Image>
-
-                            </View>
-                        </View>
-                    </View>
-                    <View style={{ flex: 1 }}>
-                        <ImageBackground
-                            resizeMode={'stretch'} // or cover
-                            style={{ flex: 1 }} // must be passed from the parent, the number may vary depending upon your screen size
-                            source={chatbox}
-                        >
-                            <ScrollView >
-                                <View style={{ width: "70%", height: "auto" }}><View style={{ margin: 10, backgroundColor: "#00000000" }}>
-                                    <View style={{ paddingLeft: 2, backgroundColor: "white", paddingRight: 40, alignSelf: "flex-start", borderRadius: 10 }}>
-                                        <Text >yyyyyyyyyyyyyyyyyyyyyyyykkkkkkkkkkkkkky
-                                </Text></View></View>
-                                </View>
-                                <View style={{ width: "70%", height: "auto", alignSelf: "flex-end" }}><View style={{ margin: 10, backgroundColor: "#00000000", alignSelf: "flex-end" }}>
-                                    <View style={{ paddingLeft: 2, backgroundColor: "#dcf8c6", paddingRight: 40, alignSelf: "flex-start", borderRadius: 10 }}>
-                                        <Text >hcfdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-                                </Text></View></View>
-                                </View>
-                                <View style={{ width: "70%", height: "auto" }}><View style={{ margin: 10, backgroundColor: "#00000000" }}>
-                                    <View style={{ paddingLeft: 2, backgroundColor: "white", paddingRight: 40, alignSelf: "flex-start", borderRadius: 10 }}>
-                                        <Text >xxx
-                                </Text></View></View>
-                                </View>
-                                <View style={{ width: "70%", height: "auto", alignSelf: "flex-end" }}><View style={{ margin: 10, backgroundColor: "#00000000", alignSelf: "flex-end" }}>
-                                    <View style={{ paddingLeft: 2, backgroundColor: "#dcf8c6", paddingRight: 40, alignSelf: "flex-start", borderRadius: 10 }}>
-                                        <Text >jjjjjjjjjjjjjjjjkkkkkkkkkk
-                                </Text></View></View>
-                                </View>
-                                <View style={{ width: "70%", height: "auto" }}><View style={{ margin: 10, backgroundColor: "#00000000" }}>
-                                    <View style={{ paddingLeft: 2, backgroundColor: "white", paddingRight: 40, alignSelf: "flex-start", borderRadius: 10 }}>
-                                        <Text >iiiiiiiiiiiiiiiiiiiiiiiiiiii
-                                </Text></View></View>
-                                </View>
-                                <View style={{ width: "70%", height: "auto", alignSelf: "flex-end" }}><View style={{ margin: 10, backgroundColor: "#00000000", alignSelf: "flex-end" }}>
-                                    <View style={{ paddingLeft: 2, backgroundColor: "#dcf8c6", paddingRight: 40, alignSelf: "flex-start", borderRadius: 10 }}>
-                                        <Text >lfdd
-                                </Text></View></View>
-                                </View>
-                                <View style={{ width: "70%", height: "auto" }}><View style={{ margin: 10, backgroundColor: "#00000000" }}>
-                                    <View style={{ paddingLeft: 2, backgroundColor: "white", paddingRight: 40, alignSelf: "flex-start", borderRadius: 10 }}>
-                                        <Text >fgggggggggggggggggggggggggggggggggfgggggggggggggggggggfgdf
-                                </Text></View></View>
-                                </View>
-                                <View style={{ width: "70%", height: "auto", alignSelf: "flex-end" }}><View style={{ margin: 10, backgroundColor: "#00000000", alignSelf: "flex-end" }}>
-                                    <View style={{ paddingLeft: 2, backgroundColor: "#dcf8c6", paddingRight: 40, alignSelf: "flex-start", borderRadius: 10 }}>
-                                        <Text >hcfdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-                                </Text></View></View>
-                                </View>
-                                <View style={{ width: "70%", height: "auto" }}><View style={{ margin: 10, backgroundColor: "#00000000" }}>
-                                    <View style={{ paddingLeft: 2, backgroundColor: "white", paddingRight: 40, alignSelf: "flex-start", borderRadius: 10 }}>
-                                        <Text >ppppppppppppppppppppppppppppp!!!!!!!!!!!!!!!!!!
-                                </Text></View></View>
-                                </View>
-                                <View style={{ width: "70%", height: "auto", alignSelf: "flex-end" }}><View style={{ margin: 10, backgroundColor: "#00000000", alignSelf: "flex-end" }}>
-                                    <View style={{ paddingLeft: 2, backgroundColor: "#dcf8c6", paddingRight: 40, alignSelf: "flex-start", borderRadius: 10 }}>
-                                        <Text >eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-                                </Text></View></View>
-                                </View>
-
-
-                                {/* <View style={{backgroundColor:"red",   right: 20,bottom: 20,elevation:8, borderRadius: 20,width:"100%",height:20}}></View>> */}
-
-                            </ScrollView>
-                            <Footer style={{backgroundColor:"#00000000"}} >
-                                <FooterTab style={{backgroundColor:"#00000000",marginLeft:10,marginRight:70}}>  
-                                    <View style={{ backgroundColor: "white", width: "100%", borderRadius: 15,alignSelf:"center", height: "90%" }}>
-                                        <TextInput
-                                            style={{ height: "90%",  width: "100%",backgroundColor:"" }}
-                                            placeholder="Type a message"
-                                            onChangeText={(newmessage) => this.setState({ newmessage })}
-                                        />
-                                    </View>
-                                </FooterTab>
-                                
-                            </Footer>
-                        </ImageBackground>
-                    </View>
-                </View>
-
-            </Modal>
+//                 }}>
 
 
 
-            // <View style={styles.container}>
-            //   <Text style={styles.welcome}>Welcome to React Native!</Text>
-            //   <Text style={styles.instructions}>To get started, edit App.js</Text>
-            //   <Text style={styles.instructions}>{instructions}</Text>
-            // </View>
-        );
-    }
-}
+//                 <View style={{ height: "100%", width: "100%", backgroundColor: "white" }}>
 
-const RootStack = createStackNavigator(
-    {
-        Home: { screen: ChatScreen, navigationOptions: { header: null } },
+//                     <View style={{
+//                         backgroundColor: "#075e54",
+//                         flexDirection: 'row',
+//                         width: "100%",
+//                         justifyContent: 'space-between',
+//                     }}>
+//                         {/* <View style={{width: 150, height: 50, backgroundColor: 'powderblue'}}></View> */}
+//                         <View style={{ width: 150, height: 50, backgroundColor: '#075e54' }}>
+//                             <TouchableNativeFeedback onPress={this.backtochat.bind(this)}><Icon style={{ marginTop: 10 }} name="keyboard-backspace" size={27} color="#FFF" /></TouchableNativeFeedback>
+//                             <Image style={{
+//                                 borderWidth: 0,
+//                                 borderColor: '#F4F0F0',
+//                                 alignItems: 'center',
+//                                 justifyContent: 'center',
+//                                 width: 37,
+//                                 marginLeft: 10,
 
-        Contacts: { screen: ContactScreen, navigationOptions: { header: null } }
-    },
-    {
-        initialRouteName: 'Home',
-    }
-);
+//                                 height: 37,
+//                                 marginTop: 7,
+//                                 marginLeft: 27,
+//                                 position: "absolute",
+//                                 borderRadius: 100,
+//                             }}
+//                                 source={this.state.displaypic}
+//                                 // source=
+//                                 // {{
+//                                 //     uri: item.displayPic
+//                                 // }} 
+//                                 alt="please wait" />
+//                             <Text style={{ fontFamily:"HelveticaNeue", marginLeft: 75, paddingTop: 10, fontSize: 16, width: "60%", fontWeight: "bold", color: "white", position: "absolute" }}>{this.state.displayname}</Text>
 
-export default class Chats extends Component<Props> {
-    render() {
-        return <RootStack />;
-    }
-}
+//                         </View>
+
+
+//                         <View style={{ width: 140, height: 50, backgroundColor: '#075e54' }}>
+//                             <View style={{ height: 40, width: 100, paddingTop: 12, paddingRight: 10 }}>
+//                                 <Icon style={{ height: 30, width: 30, paddingRight: 2, marginTop: 0 }} name="video" size={30} color="#FFF"></Icon>
+//                                 <Icon style={{ height: 27, width: 27, marginTop: 13, position: "absolute", marginLeft: 55 }} name="phone" size={27} color="#FFF" ></Icon>
+//                                 <Image style={{ height: 22, width: 22, position: "absolute", marginTop: 16, marginLeft: 105 }} source={menu}></Image>
+
+//                             </View>
+//                         </View>
+//                     </View>
+//                     <View style={{ flex: 1 }}>
+//                         <ImageBackground
+//                             resizeMode={'stretch'} // or cover
+//                             style={{ flex: 1 }} // must be passed from the parent, the number may vary depending upon your screen size
+//                             source={chatbox}
+//                         >
+
+//                             <FlatList
+//                                 data={this.state.chats}
+//                                 renderItem={({ item }) =>
+//                                     <View style={{ marginTop: 1 }}>
+
+//                                         <View style={{ width: "80%", height: "auto", backgroundColor: "#00000000", alignSelf: item.viewalign }}>
+//                                             <View style={{ margin: 10, backgroundColor: "", alignSelf: item.viewalign, marginTop: 6, marginBottom: 1 }}>
+//                                                 <View style={{ paddingLeft: 5, backgroundColor: item.backcolor, paddingRight: 10, alignSelf: "flex-start", borderRadius: 8 }}>
+//                                                     <Text style={{ fontFamily:"HelveticaNeue", margin: 5 ,opacity:0.9}} >{item.message}
+//                                                     </Text>
+
+//                                                     <Text style={{ fontFamily:"HelveticaNeue", alignSelf: "flex-end", fontSize: 11, opacity: 0.3, paddingRight: (1.2*item.tickswidth) }}>{item.time}</Text>
+//                                                     <View style={{ marginLeft: 5, backgroundColor: "", height: 20, position: "relative", marginTop: -20, alignSelf: "flex-end" }}>
+//                                                         <Image style={{paddingLeft:3, marginLeft: 4, marginTop: 3, height: 15, width: item.tickswidth , opacity: 0.5, }} source={item.imgticks} />
+//                                                         {/* <Icon3 style={{ marginLeft: 4,marginTop:3, }} name="check-double" color={"white"} size={item.tickswidth} /> */}
+//                                                     </View>
+//                                                 </View></View>
+//                                         </View>
+//                                     </View>
+
+
+
+//                                 } />
+
+
+
+
+//                             {/* <View style={{ width: "70%", height: "auto",alignSelf:this.state.viewalign }}><View style={{ margin: 10, backgroundColor: "#00000000" , alignSelf:this.state.viewalign}}>
+//                                     <View style={{ paddingLeft: 2, backgroundColor:this.state.backcolor, paddingRight: 10, alignSelf: "flex-start", borderRadius: 10 }}>
+//                                         <Text >yyyy {this.state.time}
+//                                 </Text></View></View>
+//                                 </View>
+//                                 <View style={{ width: "70%", height: "auto", alignSelf: "flex-end" }}><View style={{ margin: 10, backgroundColor: "#00000000", alignSelf: "flex-end" }}>
+//                                     <View style={{ paddingLeft: 2, backgroundColor: this.state.backcolor, paddingRight: 40, alignSelf: "flex-start", borderRadius: 10 }}>
+//                                         <Text >hcfdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff {this.state.time}
+//                                 </Text></View></View>
+                               
+//                                 </View> */}
+
+
+//                             {/* <View style={{backgroundColor:"red",   right: 20,bottom: 20,elevation:8, borderRadius: 20,width:"100%",height:20}}></View>> */}
+
+
+//                             <Footer style={{ backgroundColor: "#00000000", marginBottom: 3 }} >
+//                                 <FooterTab style={{ backgroundColor: "#00000000", marginLeft: 10, marginRight: 55 }}>
+//                                     <View style={{ backgroundColor: "white", width: "100%", borderRadius: 25, alignSelf: "center", height: "90%" }}>
+//                                         <View style={{ backgroundColor: "white", width: 25, height: 25, marginLeft: 10, marginTop: 3, borderRadius: 10, alignContent: "center" }}>
+//                                             <Image style={{ height: 25, width: 25, marginTop: 8, position: "absolute", alignSelf: "center", opacity: 0.5 }} source={smiley} /></View>
+//                                         <TextInput
+//                                             style={{ height: "90%", width: "70%", backgroundColor: "", marginLeft: 40, position: "absolute", marginTop: 3, fontSize: 18 }}
+//                                             placeholder="Type a message"
+
+//                                              onChangeText={(newmessage) => this.setState({ keyboardicon: "send",newmessage }) }
+//                                             onChangeText={this.sendmessage.bind(this)}
+//                                         />
+//                                         <View style={{ width: 40, height: 30, margin: 20, marginLeft: 5, backgroundColor: "", position: "absolute", alignSelf: "flex-end", marginTop: 13, marginRight: 160 }}><Icon5 name="attachment" color={"#A9A9A9"}  size={22}  /></View>
+//                                     </View>
+//                                     <View style={{ backgroundColor: "#128C7E", marginTop: 5, marginLeft: 4, alignItems: "center", borderRadius: 100, width: 45, height: 45 }}><Icon style={{ paddingTop: 10, paddingRight: 0 }} name={this.state.keyboardicon} size={25} color={"#FFF"} /></View>
+//                                 </FooterTab>
+
+
+//                             </Footer>
+//                         </ImageBackground>
+//                     </View>
+//                 </View>
+
+//             </Modal>
+
+
+
+//             // <View style={styles.container}>
+//             //   <Text style={stfontFamily:"HelveticaNeue", yles.welcome}>Welcome to React Native!</Text>
+//             //   <Text style={styles.instructions}>To get started, edit App.js</Text>
+//             //   <Text style={styles.instructions}>{instructions}</Text>
+//             // </View>
+//         );
+//     }
+// }
+
+// const RootStack = createStackNavigator(
+//     {
+//         Home: { screen: ChatScreen, navigationOptions: { header: null } },
+
+//         Contacts: { screen: ContactScreen, navigationOptions: { header: null } }
+//     },
+//     {
+//         initialRouteName: 'Home',
+//     }
+// );
+
+export default withNavigation(ChatScreen)
+   
+
