@@ -201,7 +201,7 @@ export default class ContactScreen extends Component {
 
                                 height: 37,
                                 marginTop: 7,
-                                marginLeft: 27,
+                                marginLeft: 30,
                                 position: "absolute",
                                 borderRadius: 100,
                             }}
@@ -211,7 +211,7 @@ export default class ContactScreen extends Component {
                                 //     uri: item.displayPic
                                 // }} 
                                 alt="please wait" />
-                            <Text style={{ fontFamily:"HelveticaNeue", marginLeft: 75, paddingTop: 10, fontSize: 16, width: "60%", fontWeight: "bold", color: "white", position: "absolute" }}>{this.state.displayname}</Text>
+                            <Text style={{ fontFamily:"HelveticaNeue", marginLeft: 80, paddingTop: 10, fontSize: 16, width: "60%", fontWeight: "bold", color: "white", position: "absolute" }}>{this.state.displayname}</Text>
 
                         </View>
 

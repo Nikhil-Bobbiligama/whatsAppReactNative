@@ -11,6 +11,9 @@ import { Container, Tab, Tabs, TabHeading, Header, Icon, Text, Platform, StyleSh
 // import Camera from 'react-native-camera';
 import { StatusBar, Image } from 'react-native';
 import Chats from './Chats'
+import { fromLeft } from 'react-navigation-transitions';
+import { flipX } from 'react-navigation-transitions';
+// import { fromLeft } from 'react-navigation-transitions';
 
 // import ContactScreen from './ContactScreen'
 import Status from './Status'
@@ -20,16 +23,22 @@ import menu from './images/more.png'
 import ChatboxScreen from './ChatboxScreen';
 import FirstScreen from './FirstScreen';
 import {createStackNavigator} from 'react-navigation';
-
+import StackViewStyleInterpolator from "react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator";
 
 const RootStack = createStackNavigator(
   {
       Home: { screen: FirstScreen, navigationOptions: { header: null } },
       
-      Chatbox: { screen: ChatboxScreen, navigationOptions: { header: null } }
+      Chatbox: { screen: ChatboxScreen, navigationOptions: { header: null },  transitionConfig: () => fromLeft() }
   },
   {
       initialRouteName: 'Home',
+      // transitionConfig: () => fromLeft(450),
+      transitionConfig: ()=> {
+        return {
+          transitionSpec: { duration: 320 },
+          screenInterpolator: StackViewStyleInterpolator.forHorizontal}
+        }
   }
 );
 

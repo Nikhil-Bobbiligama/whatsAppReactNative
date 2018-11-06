@@ -58,6 +58,7 @@
 		DCC5B44459154F56ABEC260D /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 887B410939274D6B81E27817 /* FontAwesome5_Brands.ttf */; };
 		AD92F2C92B1D48EEB531ED46 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D7D83AFAB3C426180A8BFCA /* FontAwesome5_Regular.ttf */; };
 		FE6257C2732F4FAD9618CF4E /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C42BCCA2C5BF4A7FBD93CA84 /* FontAwesome5_Solid.ttf */; };
+		8E32AE753037427AB4649A5E /* libFastImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F39F34899A42F1AE1407B2 /* libFastImage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -386,6 +387,8 @@
 		887B410939274D6B81E27817 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		7D7D83AFAB3C426180A8BFCA /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		C42BCCA2C5BF4A7FBD93CA84 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9B2C6FC53D8D4E249A4D4951 /* FastImage.xcodeproj */ = {isa = PBXFileReference; name = "FastImage.xcodeproj"; path = "../node_modules/react-native-fast-image/ios/FastImage.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		17F39F34899A42F1AE1407B2 /* libFastImage.a */ = {isa = PBXFileReference; name = "libFastImage.a"; path = "libFastImage.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +418,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				E839DFED3188428798134F1E /* libRCTCamera.a in Frameworks */,
 				6936E4D882DF4FD49C5EB05F /* libRNVectorIcons.a in Frameworks */,
+				8E32AE753037427AB4649A5E /* libFastImage.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +608,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				F58C7809890C4C258BAC4F6C /* RCTCamera.xcodeproj */,
 				B88ED1C7DF0A4F53A8C1DA4C /* RNVectorIcons.xcodeproj */,
+				9B2C6FC53D8D4E249A4D4951 /* FastImage.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1279,11 +1284,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
 				);
 			};
 			name = Debug;
@@ -1308,11 +1315,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
 				);
 			};
 			name = Release;
@@ -1337,6 +1346,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
 				);
 			};
 			name = Debug;
@@ -1360,6 +1370,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
 				);
 			};
 			name = Release;
@@ -1392,11 +1403,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
 				);
 			};
 			name = Debug;
@@ -1429,11 +1442,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
 				);
 			};
 			name = Release;
@@ -1465,11 +1480,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
 				);
 			};
 			name = Debug;
@@ -1501,11 +1518,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
 				);
 			};
 			name = Release;
