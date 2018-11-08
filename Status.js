@@ -69,95 +69,96 @@ const styles = StyleSheet.create({
         color: 'white'
     }
 });
+const a = [
+    {
+        contactName: "MSD",
+        message: "Hi Nikhil Watsapp",
+        time: "Today, 11:11 AM",
+        id: 1,
+        number: 9700911060,
+        displayPic: viewedupdate1,
+    },
+    {
+        contactName: "Virat Kohli",
+        message: "Hi Nikhil ",
+        time: "Today, 9:26 AM",
+        number: 8374151515,
+        id: 2,
+        displayPic: viewedupdate2,
+    },
+    {
+        contactName: "Mahesh Babu",
+        message: "Hi Nikhil ",
+        time: "Today, 7:19 AM",
+        number: 9059514901,
+        id: 3,
+        displayPic: viewedupdate3,
+    }
+];
+const mutedUpdates = [
+    {
+        contactName: "Mahi",
+        message: "Hi Nikhil Watsapp",
+        time: "Today, 5:30 PM",
+        id: 1,
+        number: 9700911060,
+        displayPic: mutedupdate1,
+    },
+
+    {
+        contactName: "Salman",
+        message: "Hi Nikhil ",
+        time: "Today, 4:00 PM",
+        number: 9059514901,
+        id: 3,
+        displayPic: mutedupdate2,
+    },
+    {
+        contactName: "Kohli",
+        message: "Hi Nikhil ",
+        time: "Today, 3:25 PM",
+        number: 8374151515,
+        id: 2,
+        displayPic: mutedupdate3,
+    },
+];
+const recentUpdates = [
+    {
+        contactName: "Dhoni",
+        message: "Hi Nikhil Watsapp",
+        time: "Today, 5:11 PM",
+        id: 1,
+        number: 9700911060,
+        displayPic: recentupdate1,
+    },
+
+    {
+        contactName: "Mahesh",
+        message: "Hi Nikhil ",
+        time: "Today, 4:30 PM",
+        number: 9059514901,
+        id: 3,
+        displayPic: recentupdate2,
+    },
+    {
+        contactName: "Virat",
+        message: "Hi Nikhil ",
+        time: "Today, 3:16 PM",
+        number: 8374151515,
+        id: 2,
+        displayPic: recentupdate3,
+    },
+];
 export default class Status extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            recentUpdates: [
-                {
-                    contactName: "Dhoni",
-                    message: "Hi Nikhil Watsapp",
-                    time: "Today, 5:11 PM",
-                    id: 1,
-                    number: 9700911060,
-                    displayPic: recentupdate1,
-                },
-
-                {
-                    contactName: "Mahesh",
-                    message: "Hi Nikhil ",
-                    time: "Today, 4:30 PM",
-                    number: 9059514901,
-                    id: 3,
-                    displayPic: recentupdate2,
-                },
-                {
-                    contactName: "Virat",
-                    message: "Hi Nikhil ",
-                    time: "Today, 3:16 PM",
-                    number: 8374151515,
-                    id: 2,
-                    displayPic: recentupdate3,
-                },
-            ],
-            mutedUpdates: [
-                {
-                    contactName: "Mahi",
-                    message: "Hi Nikhil Watsapp",
-                    time: "Today, 5:30 PM",
-                    id: 1,
-                    number: 9700911060,
-                    displayPic: mutedupdate1,
-                },
-
-                {
-                    contactName: "Salman",
-                    message: "Hi Nikhil ",
-                    time: "Today, 4:00 PM",
-                    number: 9059514901,
-                    id: 3,
-                    displayPic: mutedupdate2,
-                },
-                {
-                    contactName: "Kohli",
-                    message: "Hi Nikhil ",
-                    time: "Today, 3:25 PM",
-                    number: 8374151515,
-                    id: 2,
-                    displayPic: mutedupdate3,
-                },
-            ],
-            a: [{
-                contactName: "MSD",
-                message: "Hi Nikhil Watsapp",
-                time: "Today, 11:11 AM",
-                id: 1,
-                number: 9700911060,
-                displayPic: viewedupdate1,
-            },
-            {
-                contactName: "Virat Kohli",
-                message: "Hi Nikhil ",
-                time: "Today, 9:26 AM",
-                number: 8374151515,
-                id: 2,
-                displayPic: viewedupdate2,
-            },
-            {
-                contactName: "Mahesh Babu",
-                message: "Hi Nikhil ",
-                time: "Today, 7:19 AM",
-                number: 9059514901,
-                id: 3,
-                displayPic: viewedupdate3,
-            },
-
-
-            ]
-
+            recentUpdates: recentUpdates,
+            mutedUpdates: mutedUpdates,
+            a: a
         }
 
-
+        this.handleScroll.bind(this);
     }
     static navigationOptions = {
         title: "Watsapp"
@@ -165,10 +166,15 @@ export default class Status extends Component {
     openCamera() {
         alert("hekllo");
     }
+    handleScroll(event) {
+        console.log(event.nativeEvent.contentOffset.y);
+        console.log("heyyyyyyyyyyyyy");
+        alert("welcomes");
+    }
     render() {
         return (
             <Container style={{ backgroundColor: "white" }}>
-                <ScrollView>
+                <ScrollView onScroll={(event) => this.handleScroll(event)}>
                     <View>
                         {/* <View><Icon name="rocket" size={30} color="#900" /></View> */}
                         <TouchableNativeFeedback onPress={() => alert('add status')} >
@@ -232,6 +238,7 @@ export default class Status extends Component {
                             <Text style={{ color: "#128C7E", margin: 10, fontSize: 14, marginLeft: 15, marginTop: 5 }}>Recent updates</Text>
                         </View>
                         <FlatList
+
                             data={this.state.recentUpdates}
                             renderItem={({ item }) =>
                                 <View style={{ marginTop: 10 }}>
@@ -312,39 +319,39 @@ export default class Status extends Component {
                                 <View style={{ marginTop: 10 }}>
 
                                     <View style={{ width: 80, backgroundColor: "white", height: 70 }}><View >
-                                    <View style={{
-                                        borderWidth: 2,
-                                        borderColor: '#D3D3D3',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        width: 60,
-                                        marginLeft: 10,
-
-                                        height: 60,
-                                        marginTop: 5,
-
-                                        borderRadius: 100,
-                                    }} >
-                                        <Image style={{
-                                            borderWidth: 1,
-                                            borderColor: '#F4F0F0',
+                                        <View style={{
+                                            borderWidth: 2,
+                                            borderColor: '#D3D3D3',
                                             alignItems: 'center',
                                             justifyContent: 'center',
-                                            width: 55,
+                                            width: 60,
+                                            marginLeft: 10,
 
-
-                                            height: 55,
-
+                                            height: 60,
+                                            marginTop: 5,
 
                                             borderRadius: 100,
-                                        }}
-                                            source={item.displayPic}
-                                            // source=
-                                            // {{
-                                            //     uri: item.displayPic
-                                            // }} 
-                                            alt="please wait" />
-                                            </View>
+                                        }} >
+                                            <Image style={{
+                                                borderWidth: 1,
+                                                borderColor: '#F4F0F0',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                width: 55,
+
+
+                                                height: 55,
+
+
+                                                borderRadius: 100,
+                                            }}
+                                                source={item.displayPic}
+                                                // source=
+                                                // {{
+                                                //     uri: item.displayPic
+                                                // }} 
+                                                alt="please wait" />
+                                        </View>
                                     </View></View>
                                     <View style={{
 
@@ -388,7 +395,7 @@ export default class Status extends Component {
                             renderItem={({ item }) =>
                                 <View style={{ marginTop: 10 }}>
 
-                                    <View style={{ width: 80, backgroundColor: "white", height: 70,opacity:.5 }}><View style={{
+                                    <View style={{ width: 80, backgroundColor: "white", height: 70, opacity: .5 }}><View style={{
                                         borderWidth: 5,
                                         borderColor: 'white',
                                         alignItems: 'center',
@@ -432,13 +439,13 @@ export default class Status extends Component {
                                         position: "absolute",
                                         height: 70,
                                         backgroundColor: '#EEECEC',
-                                        
+
 
 
                                     }}>
                                         <View style={{ height: "99%", width: "100%" }}>
                                             <View style={{ backgroundColor: "white", width: "65%", height: "45%" }}>
-                                                <Text style={{ fontWeight: "bold", marginTop: 4,opacity:.5 }}> {item.contactName}</Text>
+                                                <Text style={{ fontWeight: "bold", marginTop: 4, opacity: .5 }}> {item.contactName}</Text>
                                             </View>
                                             <View style={{ backgroundColor: "white", height: "45%", width: "35%", marginLeft: "65%", position: "absolute" }}>
                                                 <Text style={{ fontWeight: "normal", fontSize: 13, marginTop: 3, textAlign: "right", opacity: 0.5, paddingTop: 5 }}> </Text>
