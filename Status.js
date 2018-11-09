@@ -19,6 +19,7 @@ import viewedupdate3 from './images/viewedupdate3.jpeg'
 import mutedupdate1 from './images/mutedupdate1.jpeg'
 import mutedupdate2 from './images/mutedupdate2.jpeg'
 import mutedupdate3 from './images/mutedupdate3.jpeg'
+import { withNavigation } from 'react-navigation';
 
 
 
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         right: 25,
-        bottom: 90,
+        bottom: 190,
         backgroundColor: '#FFF',
         borderRadius: 30,
         elevation: 8
@@ -70,6 +71,30 @@ const styles = StyleSheet.create({
     }
 });
 const a = [
+    {
+        contactName: "MSD",
+        message: "Hi Nikhil Watsapp",
+        time: "Today, 11:11 AM",
+        id: 1,
+        number: 9700911060,
+        displayPic: viewedupdate1,
+    },
+    {
+        contactName: "Virat Kohli",
+        message: "Hi Nikhil ",
+        time: "Today, 9:26 AM",
+        number: 8374151515,
+        id: 2,
+        displayPic: viewedupdate2,
+    },
+    {
+        contactName: "Mahesh Babu",
+        message: "Hi Nikhil ",
+        time: "Today, 7:19 AM",
+        number: 9059514901,
+        id: 3,
+        displayPic: viewedupdate3,
+    },
     {
         contactName: "MSD",
         message: "Hi Nikhil Watsapp",
@@ -148,13 +173,41 @@ const recentUpdates = [
         id: 2,
         displayPic: recentupdate3,
     },
+    {
+        contactName: "Dhoni",
+        message: "Hi Nikhil Watsapp",
+        time: "Today, 5:11 PM",
+        id: 1,
+        number: 9700911060,
+        displayPic: recentupdate1,
+    },
+
+    {
+        contactName: "Mahesh",
+        message: "Hi Nikhil ",
+        time: "Today, 4:30 PM",
+        number: 9059514901,
+        id: 3,
+        displayPic: recentupdate2,
+    },
+    {
+        contactName: "Virat",
+        message: "Hi Nikhil ",
+        time: "Today, 3:16 PM",
+        number: 8374151515,
+        id: 2,
+        displayPic: recentupdate3,
+    },
+
 ];
-export default class Status extends Component {
+var checkscroll=0;
+ class Status extends Component {
     constructor(props) {
         super(props);
         this.state = {
             recentUpdates: recentUpdates,
             mutedUpdates: mutedUpdates,
+            up_down:"",
             a: a
         }
 
@@ -166,15 +219,41 @@ export default class Status extends Component {
     openCamera() {
         alert("hekllo");
     }
+    
     handleScroll(event) {
-        console.log(event.nativeEvent.contentOffset.y);
-        console.log("heyyyyyyyyyyyyy");
-        alert("welcomes");
+        // console.log(event.nativeEvent.contentOffset.y);
+        // console.log("heyyyyyyyyyyyyy");
+        
+        if(checkscroll<event.nativeEvent.contentOffset.y){
+            if(checkscroll<0){
+                alert("moving down");
+                checkscroll=event.nativeEvent.contentOffset.y;
+                this.setState({up_down:"down"});
+            }
+            else
+            {
+            alert("moving up pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
+            this.setState({up_down:"up"});
+            checkscroll=event.nativeEvent.contentOffset.y;
+        }}
+        else{
+            this.setState({up_down:"down"});
+            alert("moving down pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
+            checkscroll=event.nativeEvent.contentOffset.y;
+        }
+      
+        const { navigate } = this.props.navigation;
+        navigate('Home', { up_down: this.state.up_down });
+        //this.props.navigation.state.params.xyz(this.state.up_down);
+        this.props.xyz(this.state.up_down);
     }
     render() {
         return (
             <Container style={{ backgroundColor: "white" }}>
-                <ScrollView onScroll={(event) => this.handleScroll(event)}>
+                <ScrollView onScroll={(event) => this.handleScroll(event)}
+                 scrollEventThrottle={1}
+                 bounces={true}
+                >
                     <View>
                         {/* <View><Icon name="rocket" size={30} color="#900" /></View> */}
                         <TouchableNativeFeedback onPress={() => alert('add status')} >
@@ -468,19 +547,11 @@ export default class Status extends Component {
 
                 <TouchableOpacity onPress={() => alert('FAB clicked')} style={styles.fab3}>
                     <Icon2 name="pencil" size={25} color="grey" />
-                    {/* <Icon
-                            name="ios-add"
-                            color="#ccc"
-                            size={25}
-                        /> */}
+                    
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.openCamera.bind(this)} style={styles.fab2}>
                     <Icon name="camera" size={25} color="#FFF" />
-                    {/* <Icon
-                            name="ios-add"
-                            color="#ccc"
-                            size={25}
-                        /> */}
+                   
                 </TouchableOpacity>
             </Container>
 
@@ -493,3 +564,4 @@ export default class Status extends Component {
     }
 }
 
+export default withNavigation(Status)

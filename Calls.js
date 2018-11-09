@@ -108,6 +108,33 @@ export default class Chats extends Component {
                 displayPic: salmandp,
                 calltype:receivedCall,
             },
+            {
+                contactName: "Dhoni",
+                callicon: voiceCall,
+                time: "42 minutes ago",
+                id: 1,
+                number: 9700911060,
+                displayPic: dhonidp,
+                calltype:receivedCall,
+            },
+            { 
+                contactName: "Virat", 
+                callicon: videoCall,
+                time: "15 October, 10:05 AM",
+                number: 8374151515,
+                id: 2,
+                displayPic: viratdp,
+                calltype:missedCall,
+            },
+            {
+                contactName: "Salman",
+                callicon: voiceCall,
+                time: "15 September, 9:05 AM",
+                id: 4,
+                number: 9491903177,
+                displayPic: salmandp,
+                calltype:receivedCall,
+            },
             { 
                 contactName: "Mahesh", 
                 callicon: videoCall,
@@ -126,6 +153,34 @@ export default class Chats extends Component {
                 id: 5,
                 displayPic: adbdp,
                 calltype:dailedCall,
+            },
+            { 
+                contactName: "Mahesh", 
+                callicon: videoCall,
+                time: "25 July, 10:05 PM",
+                number: 9059514901,
+                id: 3,
+                displayPic: maheshdp,
+                calltype:missedCall,
+            },
+            { 
+                contactName: "ABD", 
+                callicon: videoCall,
+                time: "20 July, 8:05 AM",
+                number: 9059514901,
+                number: 9948434361,
+                id: 5,
+                displayPic: adbdp,
+                calltype:dailedCall,
+            },
+            {
+                contactName: "Dhoni",
+                callicon: voiceCall,
+                time: "42 minutes ago",
+                id: 1,
+                number: 9700911060,
+                displayPic: dhonidp,
+                calltype:receivedCall,
             },
 
             ]
@@ -205,9 +260,9 @@ export default class Chats extends Component {
 
 
                         } />
-                    <TouchableOpacity onPress={() => alert('FAB clicked')} style={styles.fab}>
+                    {/* <TouchableOpacity onPress={() => alert('FAB clicked')} style={styles.fab}>
                         <Image style={{ width: 25, height: 25, borderRadius: 100,opacity:0.4 }} source={ callAdd }></Image>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                     
                 </View>
 

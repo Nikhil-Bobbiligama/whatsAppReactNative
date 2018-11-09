@@ -332,7 +332,7 @@ class ChatScreen extends Component {
                         </TouchableHighlight>
                     </Modal> */}
                         <FlatList
-                           onScrollBeginDrag={alert("u scrolled")}
+                          
                             data={this.state.a}
 
                             renderItem={({ item }) =>

@@ -36,7 +36,7 @@ const RootStack = createStackNavigator(
       // transitionConfig: () => fromLeft(450),
       transitionConfig: ()=> {
         return {
-          transitionSpec: { duration: 320 },
+          transitionSpec: { duration: 250 },
           screenInterpolator: StackViewStyleInterpolator.forHorizontal}
         }
   }
