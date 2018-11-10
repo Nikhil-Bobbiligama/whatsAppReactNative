@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     }
 });
 scroll = new Animated.Value(0);
+var checkscroll=0;
 class ChatScreen extends Component {
     constructor(props) {
         super(props);
@@ -273,7 +274,33 @@ class ChatScreen extends Component {
     onBackPress() {
         this.setState({ modalvisible: false });
     }
-
+    handleScroll(event) {
+        // console.log(event.nativeEvent.contentOffset.y);
+        // console.log("heyyyyyyyyyyyyy");
+        
+        if(checkscroll<event.nativeEvent.contentOffset.y){
+            if(checkscroll<0){
+                // alert("moving down");
+                checkscroll=event.nativeEvent.contentOffset.y;
+                this.setState({up_down:"down"});
+            }
+            else
+            {
+            // alert("moving up pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
+            this.setState({up_down:"up"});
+            checkscroll=event.nativeEvent.contentOffset.y;
+        }}
+        else{
+            this.setState({up_down:"down"});
+            // alert("moving down pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
+            checkscroll=event.nativeEvent.contentOffset.y;
+        }
+      
+        const { navigate } = this.props.navigation;
+        navigate('Home', { up_down: this.state.up_down });
+        //this.props.navigation.state.params.xyz(this.state.up_down);
+        this.props.xyz(this.state.up_down);
+    }
 
     ////////////////////////////////
     // takePicture() { this.camera.capture() .then((data) => console.log(data)) .catch(err => console.error(err)); }
@@ -334,7 +361,9 @@ class ChatScreen extends Component {
                         <FlatList
                           
                             data={this.state.a}
-
+                            onScroll={(event) => this.handleScroll(event)}
+                            scrollEventThrottle={1}
+                            bounces={true}
                             renderItem={({ item }) =>
 
                                 <View style={{ marginTop: 10, marginRight: 5, zIndex: 2 }}>

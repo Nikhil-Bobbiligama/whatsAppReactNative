@@ -139,7 +139,7 @@ const TAB_PROPS = {
   textStyle: { color: "white" },
   activeTextStyle: { color: "white" }
 };
-var spd;
+var spd=50,spdvisible="WhatsApp",spdicon=0;
 export default class FirstScreen extends Component {
   scroll = new Animated.Value(0);
   headerY;
@@ -320,7 +320,7 @@ export default class FirstScreen extends Component {
     // // this.scroll= chatscroll;
     // console.log(chatscroll);
     // console.log(this.scroll)
-    alert(main_up_down);
+    // alert(main_up_down);
     this.headerY = Animated.multiply(Animated.diffClamp(this.scroll, 0, NAVBAR_HEIGHT), -1);
   }
   setModalVisible(visible) {
@@ -350,19 +350,23 @@ export default class FirstScreen extends Component {
     title: "Watsapp"
   }
   checkscroll(y) {
-    alert("check " + y);
+    // alert("check " + y);
     if (y === "down") {
-      this.setState({ whatsappheight: 50 });
+      // this.setState({ whatsappheight: 50 });
       spd=50;
+      spdvisible="WhatsApp";
+      spdicon=0;
     }
     if (y === "up") {
-      this.setState({ whatsappheight: 0 });
+      // this.setState({ whatsappheight: 0 });
       spd=0;
+      spdvisible="";
+      spdicon=22;
     }
   }
   xyz(scrollcheck) {
     console.log(scrollcheck + " hello");
-    alert(scrollcheck + " hello");
+  //  alert(scrollcheck + " hello");
   }
   calldummy() {
     console.log("chats screen called-------------------------------");
@@ -395,7 +399,7 @@ export default class FirstScreen extends Component {
           zIndex: 1,
           backgroundColor: COLOR
         }}>
-          <Header style={{ backgroundColor: "transparent" }} hasTabs>
+          <Header style={{ backgroundColor: "transparent" ,height:spd}} hasTabs>
             <Body>
 
               <View style={{
@@ -408,14 +412,14 @@ export default class FirstScreen extends Component {
               }}>
                 {/* <View style={{width: 150, height: 50, backgroundColor: 'powderblue'}}></View> */}
                 <View style={{ width: 150, height: spd, backgroundColor: '#075e54', elevation: 0 }}>
-                  <Text style={{ paddingLeft: 10, paddingTop: 15, fontSize: 18, width: "80%", fontWeight: "200", color: "white" }}>WhatsApp</Text>
+                  <Text style={{ paddingLeft: 10, paddingTop: 15, fontSize: 18, width: "80%", fontWeight: "200",visible:false, color: "white" }}>{spdvisible}</Text>
 
                 </View>
 
                 <View style={{ width: 80, height: spd, backgroundColor: '#075e54' }}>
                   <View style={{ height: 40, width: 80, paddingTop: 15, paddingRight: 10 }}>
-                    <Image style={{ height: 22, width: 22, paddingRight: 20, marginTop: 2 }} source={search}></Image>
-                    <Image style={{ height: 18, width: 18, marginTop: 18, position: "absolute", marginLeft: 50 }} source={menu}></Image>
+                    <Image style={{ height: 22-spdicon, width: 22-spdicon, paddingRight: 20, marginTop: 2 ,visible:spdvisible}} source={search}></Image>
+                    <Image style={{ height: 18-spdicon, width: 18-spdicon, marginTop: 18, position: "absolute", marginLeft: 50,visible:spdvisible }} source={menu} ></Image>
                   </View>
                 </View>
               </View>
@@ -426,16 +430,16 @@ export default class FirstScreen extends Component {
         </Animated.View>
         {/* <View style={{backgroundColor:"red",width:"100%",height:100}}></View> */}
 
-        <Tabs style={{ flex: 1, elevation: 0, color: "#5CA7A2", borderBottomColor: "blue", paddingTop: 50 }} tabContainerStyle={{ elevation: 0 }} >
+        <Tabs style={{ flex: 1, elevation: 0, color: "#5CA7A2", borderBottomColor: "blue", paddingTop: spd }} tabContainerStyle={{ elevation: 0 }} >
 
           <Tab heading="CHATS" tabStyle={{ backgroundColor: '#075e54', borderRightColor: "red", shadowOpacity: 0 }} textStyle={{ color: '#5CA7A2', fontSize: 14, fontWeight: 'bold', fontFamily: "HelveticaNeue", }} activeTabStyle={{ backgroundColor: '#075e54' }} activeTextStyle={{ color: '#fff', fontWeight: 'bold', fontSize: 14, fontFamily: "HelveticaNeue", }}>
-            <Chats></Chats>
+            <Chats xyz={this.checkscroll}></Chats>
           </Tab>
           <Tab heading="STATUS" tabStyle={{ backgroundColor: '#075e54' }} textStyle={{ color: '#5CA7A2', fontSize: 14, fontWeight: 'bold', fontFamily: "HelveticaNeue", }} activeTabStyle={{ backgroundColor: '#075e54' }} activeTextStyle={{ color: '#fff', fontWeight: 'bold', fontSize: 14, fontFamily: "HelveticaNeue", }}>
             <Status xyz={this.checkscroll}></Status>
           </Tab>
           <Tab heading="CALLS" tabStyle={{ backgroundColor: '#075e54' }} textStyle={{ color: '#5CA7A2', fontSize: 14, fontWeight: 'bold', fontFamily: "HelveticaNeue", }} activeTabStyle={{ backgroundColor: '#075e54' }} activeTextStyle={{ color: '#fff', fontWeight: 'bold', fontSize: 14, fontFamily: "HelveticaNeue", }}>
-            <Calls></Calls>
+            <Calls xyz={this.checkscroll}></Calls>
           </Tab>
         </Tabs>
 

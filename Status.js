@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         right: 25,
-        bottom: 190,
+        bottom: 90,
         backgroundColor: '#FFF',
         borderRadius: 30,
         elevation: 8
@@ -226,19 +226,19 @@ var checkscroll=0;
         
         if(checkscroll<event.nativeEvent.contentOffset.y){
             if(checkscroll<0){
-                alert("moving down");
+                // alert("moving down");
                 checkscroll=event.nativeEvent.contentOffset.y;
                 this.setState({up_down:"down"});
             }
             else
             {
-            alert("moving up pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
+            // alert("moving up pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
             this.setState({up_down:"up"});
             checkscroll=event.nativeEvent.contentOffset.y;
         }}
         else{
             this.setState({up_down:"down"});
-            alert("moving down pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
+            // alert("moving down pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
             checkscroll=event.nativeEvent.contentOffset.y;
         }
       

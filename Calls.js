@@ -12,6 +12,9 @@ import dailedCall from './images/dailedcall.jpeg'
 import missedCall  from './images/missed.png'
 import videoCall from './images/videocall.png'
 import callAdd from './images/calladd.png'
+
+import { withNavigation } from 'react-navigation';
+
 import { Image, ScrollView, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 const styles = StyleSheet.create({
     fab: {
@@ -31,7 +34,9 @@ const styles = StyleSheet.create({
         color: 'white'
     }
 });
-export default class Chats extends Component {
+
+var checkscroll=0;
+ class Chats extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -183,7 +188,8 @@ export default class Chats extends Component {
                 calltype:receivedCall,
             },
 
-            ]
+            ],
+            up_down:"",
 
         }
 
@@ -193,11 +199,43 @@ export default class Chats extends Component {
     static navigationOptions = {
         title: "Watsapp"
     }
+    handleScroll(event) {
+        // console.log(event.nativeEvent.contentOffset.y);
+        // console.log("heyyyyyyyyyyyyy");
+        
+        if(checkscroll<event.nativeEvent.contentOffset.y){
+            if(checkscroll<0){
+                //  alert("moving down");
+                checkscroll=event.nativeEvent.contentOffset.y;
+                this.setState({up_down:"down"});
+            }
+            else
+            {
+            //  alert("moving up pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
+            this.setState({up_down:"up"});
+            checkscroll=event.nativeEvent.contentOffset.y;
+        }}
+        else{
+            this.setState({up_down:"down"});
+            //  alert("moving down pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
+            checkscroll=event.nativeEvent.contentOffset.y;
+        }
+      
+        // const { navigate } = this.props.navigation;
+        // navigate('Home', { up_down: this.state.up_down });
+        //this.props.navigation.state.params.xyz(this.state.up_down);
+        const { navigate } = this.props.navigation;
+        navigate('Home', { up_down: this.state.up_down });
+        this.props.xyz(this.state.up_down);
+    }
     render() {
         return (
             <Container style={{ backgroundColor: "white" }}>
                 <View>
                     <FlatList
+                      onScroll={(event) => this.handleScroll(event)}
+                      scrollEventThrottle={1}
+                      bounces={true}
                         data={this.state.a}
                         renderItem={({ item }) =>
                             <View style={{ marginTop: 10 }}>
@@ -260,9 +298,9 @@ export default class Chats extends Component {
 
 
                         } />
-                    {/* <TouchableOpacity onPress={() => alert('FAB clicked')} style={styles.fab}>
+                    <TouchableOpacity onPress={() => alert('FAB clicked')} style={styles.fab}>
                         <Image style={{ width: 25, height: 25, borderRadius: 100,opacity:0.4 }} source={ callAdd }></Image>
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>
                     
                 </View>
 
@@ -277,3 +315,4 @@ export default class Chats extends Component {
     }
 }
 
+export default withNavigation(Chats)
