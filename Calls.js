@@ -34,196 +34,187 @@ const styles = StyleSheet.create({
         color: 'white'
     }
 });
+const a =[{
+    contactName: "Dhoni",
+    callicon: voiceCall,
+    time: "42 minutes ago",
+    id: 1,
+    number: 9700911060,
+    displayPic: dhonidp,
+    calltype:receivedCall,
+},
+{ 
+    contactName: "Virat", 
+    callicon: videoCall,
+    time: "15 October, 10:05 AM",
+    number: 8374151515,
+    id: 2,
+    displayPic: viratdp,
+    calltype:missedCall,
+},
+{
+    contactName: "Salman",
+    callicon: voiceCall,
+    time: "15 September, 9:05 AM",
+    id: 4,
+    number: 9491903177,
+    displayPic: salmandp,
+    calltype:receivedCall,
+},
+{ 
+    contactName: "Mahesh", 
+    callicon: videoCall,
+    time: "25 July, 10:05 PM",
+    number: 9059514901,
+    id: 3,
+    displayPic: maheshdp,
+    calltype:missedCall,
+},
+{ 
+    contactName: "ABD", 
+    callicon: videoCall,
+    time: "20 July, 8:05 AM",
+    number: 9059514901,
+    number: 9948434361,
+    id: 5,
+    displayPic: adbdp,
+    calltype:dailedCall,
+},
+{
+    contactName: "Dhoni",
+    callicon: voiceCall,
+    time: "42 minutes ago",
+    id: 1,
+    number: 9700911060,
+    displayPic: dhonidp,
+    calltype:receivedCall,
+},
+{ 
+    contactName: "Virat", 
+    callicon: videoCall,
+    time: "15 October, 10:05 AM",
+    number: 8374151515,
+    id: 2,
+    displayPic: viratdp,
+    calltype:missedCall,
+},
+{
+    contactName: "Salman",
+    callicon: voiceCall,
+    time: "15 September, 9:05 AM",
+    id: 4,
+    number: 9491903177,
+    displayPic: salmandp,
+    calltype:receivedCall,
+},
+{
+    contactName: "Dhoni",
+    callicon: voiceCall,
+    time: "42 minutes ago",
+    id: 1,
+    number: 9700911060,
+    displayPic: dhonidp,
+    calltype:receivedCall,
+},
+{ 
+    contactName: "Virat", 
+    callicon: videoCall,
+    time: "15 October, 10:05 AM",
+    number: 8374151515,
+    id: 2,
+    displayPic: viratdp,
+    calltype:missedCall,
+},
+{
+    contactName: "Salman",
+    callicon: voiceCall,
+    time: "15 September, 9:05 AM",
+    id: 4,
+    number: 9491903177,
+    displayPic: salmandp,
+    calltype:receivedCall,
+},
+{ 
+    contactName: "Mahesh", 
+    callicon: videoCall,
+    time: "25 July, 10:05 PM",
+    number: 9059514901,
+    id: 3,
+    displayPic: maheshdp,
+    calltype:missedCall,
+},
+{ 
+    contactName: "ABD", 
+    callicon: videoCall,
+    time: "20 July, 8:05 AM",
+    number: 9059514901,
+    number: 9948434361,
+    id: 5,
+    displayPic: adbdp,
+    calltype:dailedCall,
+},
+{ 
+    contactName: "Mahesh", 
+    callicon: videoCall,
+    time: "25 July, 10:05 PM",
+    number: 9059514901,
+    id: 3,
+    displayPic: maheshdp,
+    calltype:missedCall,
+},
+{ 
+    contactName: "ABD", 
+    callicon: videoCall,
+    time: "20 July, 8:05 AM",
+    number: 9059514901,
+    number: 9948434361,
+    id: 5,
+    displayPic: adbdp,
+    calltype:dailedCall,
+},
+{
+    contactName: "Dhoni",
+    callicon: voiceCall,
+    time: "42 minutes ago",
+    id: 1,
+    number: 9700911060,
+    displayPic: dhonidp,
+    calltype:receivedCall,
+},
+
+];
 
 var checkscroll=0;
  class Chats extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            a: [{
-                contactName: "Dhoni",
-                callicon: voiceCall,
-                time: "42 minutes ago",
-                id: 1,
-                number: 9700911060,
-                displayPic: dhonidp,
-                calltype:receivedCall,
-            },
-            { 
-                contactName: "Virat", 
-                callicon: videoCall,
-                time: "15 October, 10:05 AM",
-                number: 8374151515,
-                id: 2,
-                displayPic: viratdp,
-                calltype:missedCall,
-            },
-            {
-                contactName: "Salman",
-                callicon: voiceCall,
-                time: "15 September, 9:05 AM",
-                id: 4,
-                number: 9491903177,
-                displayPic: salmandp,
-                calltype:receivedCall,
-            },
-            { 
-                contactName: "Mahesh", 
-                callicon: videoCall,
-                time: "25 July, 10:05 PM",
-                number: 9059514901,
-                id: 3,
-                displayPic: maheshdp,
-                calltype:missedCall,
-            },
-            { 
-                contactName: "ABD", 
-                callicon: videoCall,
-                time: "20 July, 8:05 AM",
-                number: 9059514901,
-                number: 9948434361,
-                id: 5,
-                displayPic: adbdp,
-                calltype:dailedCall,
-            },
-            {
-                contactName: "Dhoni",
-                callicon: voiceCall,
-                time: "42 minutes ago",
-                id: 1,
-                number: 9700911060,
-                displayPic: dhonidp,
-                calltype:receivedCall,
-            },
-            { 
-                contactName: "Virat", 
-                callicon: videoCall,
-                time: "15 October, 10:05 AM",
-                number: 8374151515,
-                id: 2,
-                displayPic: viratdp,
-                calltype:missedCall,
-            },
-            {
-                contactName: "Salman",
-                callicon: voiceCall,
-                time: "15 September, 9:05 AM",
-                id: 4,
-                number: 9491903177,
-                displayPic: salmandp,
-                calltype:receivedCall,
-            },
-            {
-                contactName: "Dhoni",
-                callicon: voiceCall,
-                time: "42 minutes ago",
-                id: 1,
-                number: 9700911060,
-                displayPic: dhonidp,
-                calltype:receivedCall,
-            },
-            { 
-                contactName: "Virat", 
-                callicon: videoCall,
-                time: "15 October, 10:05 AM",
-                number: 8374151515,
-                id: 2,
-                displayPic: viratdp,
-                calltype:missedCall,
-            },
-            {
-                contactName: "Salman",
-                callicon: voiceCall,
-                time: "15 September, 9:05 AM",
-                id: 4,
-                number: 9491903177,
-                displayPic: salmandp,
-                calltype:receivedCall,
-            },
-            { 
-                contactName: "Mahesh", 
-                callicon: videoCall,
-                time: "25 July, 10:05 PM",
-                number: 9059514901,
-                id: 3,
-                displayPic: maheshdp,
-                calltype:missedCall,
-            },
-            { 
-                contactName: "ABD", 
-                callicon: videoCall,
-                time: "20 July, 8:05 AM",
-                number: 9059514901,
-                number: 9948434361,
-                id: 5,
-                displayPic: adbdp,
-                calltype:dailedCall,
-            },
-            { 
-                contactName: "Mahesh", 
-                callicon: videoCall,
-                time: "25 July, 10:05 PM",
-                number: 9059514901,
-                id: 3,
-                displayPic: maheshdp,
-                calltype:missedCall,
-            },
-            { 
-                contactName: "ABD", 
-                callicon: videoCall,
-                time: "20 July, 8:05 AM",
-                number: 9059514901,
-                number: 9948434361,
-                id: 5,
-                displayPic: adbdp,
-                calltype:dailedCall,
-            },
-            {
-                contactName: "Dhoni",
-                callicon: voiceCall,
-                time: "42 minutes ago",
-                id: 1,
-                number: 9700911060,
-                displayPic: dhonidp,
-                calltype:receivedCall,
-            },
-
-            ],
+            a: a,
             up_down:"",
 
         }
 
 
     }
-    // takePicture() { this.camera.capture() .then((data) => console.log(data)) .catch(err => console.error(err)); }
     static navigationOptions = {
         title: "Watsapp"
     }
     handleScroll(event) {
-        // console.log(event.nativeEvent.contentOffset.y);
-        // console.log("heyyyyyyyyyyyyy");
-        
         if(checkscroll<event.nativeEvent.contentOffset.y){
             if(checkscroll<0){
-                //  alert("moving down");
                 checkscroll=event.nativeEvent.contentOffset.y;
                 this.setState({up_down:"down"});
             }
             else
             {
-            //  alert("moving up pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
             this.setState({up_down:"up"});
             checkscroll=event.nativeEvent.contentOffset.y;
         }}
         else{
             this.setState({up_down:"down"});
-            //  alert("moving down pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
             checkscroll=event.nativeEvent.contentOffset.y;
         }
       
-        // const { navigate } = this.props.navigation;
-        // navigate('Home', { up_down: this.state.up_down });
-        //this.props.navigation.state.params.xyz(this.state.up_down);
         const { navigate } = this.props.navigation;
         navigate('Home', { up_down: this.state.up_down });
         this.props.xyz(this.state.up_down);
@@ -255,16 +246,11 @@ var checkscroll=0;
                                         borderRadius: 100,
                                     }}
                                         source={item.displayPic}
-                                        // source=
-                                        // {{
-                                        //     uri: item.displayPic
-                                        // }} 
                                         alt="please wait" />
                                 </View></View>
                                 <View style={{
 
                                     flex: 1, flexDirection: "row",
-                                    // width: "80%",
                                     marginRight: 10,
 
                                     marginLeft: 80,
@@ -298,19 +284,11 @@ var checkscroll=0;
 
 
                         } />
-                    {/* <TouchableOpacity onPress={() => alert('FAB clicked')} style={styles.fab}>
-                        <Image style={{ width: 25, height: 25, borderRadius: 100,opacity:0.4 }} source={ callAdd }></Image>
-                    </TouchableOpacity> */}
                     
                 </View>
 
             </Container>
 
-            // <View style={styles.container}>
-            //   <Text style={styles.welcome}>Welcome to React Native!</Text>
-            //   <Text style={styles.instructions}>To get started, edit App.js</Text>
-            //   <Text style={styles.instructions}>{instructions}</Text>
-            // </View>
         );
     }
 }

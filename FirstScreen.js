@@ -108,7 +108,6 @@ import salmandp from './images/salmandp.jpeg'
 import maheshdp from './images/maheshdp.jpeg'
 import addmessage from './images/addmessage.png'
 import smiley from './images/smiley3.png'
-import chatbox from './images/chatbox.png'
 import ticks from './images/2ticks.png'
 import blueticks from './images/whatsapp-blue-ticks.png'
 import { StyleSheet, ImageBackground, TouchableOpacity, FlatList, Alert, TouchableWithoutFeedback, TouchableNativeFeedback, Modal, TouchableHighlight, TextInput } from 'react-native';

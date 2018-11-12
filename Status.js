@@ -26,7 +26,6 @@ import { withNavigation } from 'react-navigation';
 
 
 import { Image, ScrollView, StyleSheet, TouchableOpacity, TouchableNativeFeedback, FlatList } from 'react-native';
-// import { RNCamera } from 'react-native-camera';
 const myIcon = (<Icon name="rocket" size={30} color="#900" />)
 const styles = StyleSheet.create({
     fab: {
@@ -425,10 +424,7 @@ var checkscroll=0;
                                                 borderRadius: 100,
                                             }}
                                                 source={item.displayPic}
-                                                // source=
-                                                // {{
-                                                //     uri: item.displayPic
-                                                // }} 
+                                               
                                                 alt="please wait" />
                                         </View>
                                     </View></View>
@@ -501,10 +497,7 @@ var checkscroll=0;
                                             borderRadius: 100,
                                         }}
                                             source={item.displayPic}
-                                            // source=
-                                            // {{
-                                            //     uri: item.displayPic
-                                            // }} 
+                                          
                                             alt="please wait" />
                                     </View></View>
                                     <View style={{
@@ -545,21 +538,10 @@ var checkscroll=0;
                     </View>
                 </ScrollView>
 
-                {/* <TouchableOpacity onPress={() => alert('FAB clicked')} style={styles.fab3}>
-                    <Icon2 name="pencil" size={25} color="grey" />
-                    
-                </TouchableOpacity>
-                <TouchableOpacity onPress={this.openCamera.bind(this)} style={styles.fab2}>
-                    <Icon name="camera" size={25} color="#FFF" />
-                   
-                </TouchableOpacity> */}
+           
             </Container>
 
-            // <View style={styles.container}>
-            //   <Text style={styles.welcome}>Welcome to React Native!</Text>
-            //   <Text style={styles.instructions}>To get started, edit App.js</Text>
-            //   <Text style={styles.instructions}>{instructions}</Text>
-            // </View>
+      
         );
     }
 }

@@ -1,21 +1,10 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
 
 import React, { Component } from 'react';
 import { Container, Tab, Tabs, TabHeading, Header, Icon, Text, Platform, StyleSheet, View, Form } from 'native-base';
-// import Camera from 'react-native-camera';
 import { StatusBar, Image } from 'react-native';
 import Chats from './Chats'
 import { fromLeft } from 'react-navigation-transitions';
 import { flipX } from 'react-navigation-transitions';
-// import { fromLeft } from 'react-navigation-transitions';
-
-// import ContactScreen from './ContactScreen'
 import Status from './Status'
 import Calls from './Calls'
 import search from './images/search.png'
@@ -33,7 +22,7 @@ const RootStack = createStackNavigator(
   },
   {
       initialRouteName: 'Home',
-      // transitionConfig: () => fromLeft(450),
+     
       transitionConfig: ()=> {
         return {
           transitionSpec: { duration: 270 },
@@ -43,10 +32,6 @@ const RootStack = createStackNavigator(
 );
 
 export default class App extends Component {
-  // takePicture() { this.camera.capture() .then((data) => console.log(data)) .catch(err => console.error(err)); }
-  // static navigationOptions = {
-  //   title: "Watsapp",
-  // }
   render() {
     StatusBar.setBackgroundColor("#04413A")
     StatusBar.setBarStyle("light-content")
