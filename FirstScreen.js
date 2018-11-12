@@ -296,15 +296,13 @@ export default class FirstScreen extends Component {
         id: 3,
         displayPic: maheshdp,
       },
-
-
       ]
-
     }
 
 
 
     this.imageview = this.imageview.bind(this);
+    this.tabchangeEventHandler = this.tabchangeEventHandler.bind(this);
     // const { navigation } = this.props;
     // const chatscroll = navigation.getParam('y1', 'NO-ID');
     // this.scroll= chatscroll;
@@ -342,7 +340,9 @@ export default class FirstScreen extends Component {
   onBackPress() {
     this.setState({ modalvisible: false });
   }
-
+  tabchangeEventHandler(i) {
+    alert(i.i);
+  }
 
   ////////////////////////////////
   // takePicture() { this.camera.capture() .then((data) => console.log(data)) .catch(err => console.error(err)); }
@@ -430,7 +430,7 @@ export default class FirstScreen extends Component {
         </Animated.View>
         {/* <View style={{backgroundColor:"red",width:"100%",height:100}}></View> */}
 
-        <Tabs style={{ flex: 1, elevation: 0, color: "#5CA7A2", borderBottomColor: "blue", paddingTop: spd }} tabContainerStyle={{ elevation: 0 }} >
+        <Tabs onChangeTab={(i) => this.tabchangeEventHandler(i)} style={{ flex: 1, elevation: 0, color: "#5CA7A2", borderBottomColor: "blue", paddingTop: spd }} tabContainerStyle={{ elevation: 0 }} >
 
           <Tab heading="CHATS" tabStyle={{ backgroundColor: '#075e54', borderRightColor: "red", shadowOpacity: 0 }} textStyle={{ color: '#5CA7A2', fontSize: 14, fontWeight: 'bold', fontFamily: "HelveticaNeue", }} activeTabStyle={{ backgroundColor: '#075e54' }} activeTextStyle={{ color: '#fff', fontWeight: 'bold', fontSize: 14, fontFamily: "HelveticaNeue", }}>
             <Chats xyz={this.checkscroll}></Chats>

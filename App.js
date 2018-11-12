@@ -21,7 +21,7 @@ import Calls from './Calls'
 import search from './images/search.png'
 import menu from './images/more.png'
 import ChatboxScreen from './ChatboxScreen';
-import FirstScreen from './FirstScreen';
+import FirstScreen from './Firstscrn';
 import {createStackNavigator} from 'react-navigation';
 import StackViewStyleInterpolator from "react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator";
 
@@ -36,7 +36,7 @@ const RootStack = createStackNavigator(
       // transitionConfig: () => fromLeft(450),
       transitionConfig: ()=> {
         return {
-          transitionSpec: { duration: 250 },
+          transitionSpec: { duration: 270 },
           screenInterpolator: StackViewStyleInterpolator.forHorizontal}
         }
   }
@@ -48,7 +48,10 @@ export default class App extends Component {
   //   title: "Watsapp",
   // }
   render() {
+    StatusBar.setBackgroundColor("#04413A")
+    StatusBar.setBarStyle("light-content")
     return (
+     
 
     <RootStack />
     );

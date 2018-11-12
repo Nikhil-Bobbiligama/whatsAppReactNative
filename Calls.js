@@ -298,9 +298,9 @@ var checkscroll=0;
 
 
                         } />
-                    <TouchableOpacity onPress={() => alert('FAB clicked')} style={styles.fab}>
+                    {/* <TouchableOpacity onPress={() => alert('FAB clicked')} style={styles.fab}>
                         <Image style={{ width: 25, height: 25, borderRadius: 100,opacity:0.4 }} source={ callAdd }></Image>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                     
                 </View>
 

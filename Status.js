@@ -226,19 +226,19 @@ var checkscroll=0;
         
         if(checkscroll<event.nativeEvent.contentOffset.y){
             if(checkscroll<0){
-                // alert("moving down");
+                alert("moving down");
                 checkscroll=event.nativeEvent.contentOffset.y;
                 this.setState({up_down:"down"});
             }
             else
             {
-            // alert("moving up pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
+            alert("moving up pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
             this.setState({up_down:"up"});
             checkscroll=event.nativeEvent.contentOffset.y;
         }}
         else{
             this.setState({up_down:"down"});
-            // alert("moving down pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
+            alert("moving down pres val"+event.nativeEvent.contentOffset.y+" prev :"+checkscroll);
             checkscroll=event.nativeEvent.contentOffset.y;
         }
       
@@ -545,14 +545,14 @@ var checkscroll=0;
                     </View>
                 </ScrollView>
 
-                <TouchableOpacity onPress={() => alert('FAB clicked')} style={styles.fab3}>
+                {/* <TouchableOpacity onPress={() => alert('FAB clicked')} style={styles.fab3}>
                     <Icon2 name="pencil" size={25} color="grey" />
                     
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.openCamera.bind(this)} style={styles.fab2}>
                     <Icon name="camera" size={25} color="#FFF" />
                    
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </Container>
 
             // <View style={styles.container}>
