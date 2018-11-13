@@ -25,7 +25,7 @@ const RootStack = createStackNavigator(
      
       transitionConfig: ()=> {
         return {
-          transitionSpec: { duration: 270 },
+          transitionSpec: { duration: 400 },
           screenInterpolator: StackViewStyleInterpolator.forHorizontal}
         }
   }

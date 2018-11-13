@@ -29,7 +29,7 @@ import addmessage from './images/addmessage.png'
 import smiley from './images/smiley3.png'
 import ticks from './images/2ticks.png'
 import blueticks from './images/whatsapp-blue-ticks.png'
-import { StyleSheet, ImageBackground, TouchableOpacity, TouchableWithoutFeedback,TouchableHighlightComponent,FlatList, Alert, FontAwesome, TouchableNativeFeedback, Modal, TouchableHighlight, TextInput } from 'react-native';
+import { StyleSheet, ImageBackground, TouchableOpacity, TouchableWithoutFeedback, TouchableHighlightComponent, FlatList, Alert, FontAwesome, TouchableNativeFeedback, Modal, TouchableHighlight, TextInput } from 'react-native';
 const styles = StyleSheet.create({
     fab: {
         position: 'absolute',
@@ -84,7 +84,7 @@ export default class FirstScreen extends Component {
             fabIcon2size: 0,
             fabIcon2: "pencil",
             fabicon2h: 0,
-            backcolor:"white",
+            backcolor: "white",
             a: [{
                 contactName: "Dhoni",
                 message: "Hi Nikhil Watsapp",
@@ -269,13 +269,17 @@ export default class FirstScreen extends Component {
     imageview(imagesrc, e) {
         this.setState({ modalvisible: true, modalimage: imagesrc });
     }
-    getContacts(displaypic, displayname) {
-          this.setState({backcolor:"grey"});
+    getContacts(displaypic, displayname,e) {
+        this.setState({ backcolor: "white" });
+        // alert("heyy");
         const { navigate } = this.props.navigation;
         navigate('Chatbox', { pic: displaypic, name: displayname });
         // navigate('ViewStudent', { id: id, sname: name, sage: age, semail: email });
-         
 
+
+    }
+    testpress(e) {
+        //    alert("ey");
     }
     onBackPress() {
         this.setState({ modalvisible: false });
@@ -298,73 +302,82 @@ export default class FirstScreen extends Component {
                     data={this.state.a}
 
                     renderItem={({ item }) =>
-                    <TouchableNativeFeedback  >
-                  
-                        <View style={{ }}>
-                        <Ripple  rippleDuration={600} rippleColor="grey" rippleOpacity={0.5} onPress={this.getContacts.bind(this, item.displayPic, item.contactName)} style={{ width: "100%",marginTop: 10, marginRight: 5, zIndex: 2  }}>
 
-      
-                                <View>
-                                    {/* <TouchableNativeFeedback onPress={(e) => this.imageview(item.displayPic, e)} > */}
+                        // <View style={{ width: "100%",paddingTop: 10, marginRight: 5, zIndex: 2  }}>
+                        /* <Ripple  rippleDuration={500}  rippleColor="#D4D4D4" rippleOpacity={0.5} onPress={this.getContacts.bind(this, item.displayPic, item.contactName)} style={{ width: "100%", paddingTop: 10, marginRight: 5, zIndex: 2 }}>
+                        {/* <TouchableHighlight onPressOut={this.getContacts.bind(this, item.displayPic, item.contactName)} underlayColor="grey"
+                            activeOpacity={0.5} underlayColor="#D4D4D4"> */
+                        //         /* <TouchableNativeFeedback
+                        // // onPress={this.getContacts.bind(this, item.displayPic, item.contactName)}
+                        // // background={TouchableNativeFeedback.Ripple('green')}
 
-
-                                    <View style={{ width: 80, backgroundColor: this.state.backcolor, height: 67 }}><View >
-                                        <Image style={{
-                                            borderWidth: 1,
-                                            borderColor: '#F4F0F0',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            width: 55,
-                                            marginLeft: 10,
-
-                                            height: 55,
-                                            marginTop: 5,
-
-                                            borderRadius: 100,
-                                        }}
-                                            source={item.displayPic}
-
-                                            alt="please wait" />
-                                    </View></View>
-                                    {/* </TouchableNativeFeedback> */}
-                                    <View style={{
-
-                                        flex: 1, flexDirection: "row",
-                                        marginRight: 10,
-
-                                        marginLeft: 80,
-                                        float: "left",
-                                        position: "absolute",
-                                        height: 70,
-                                         backgroundColor: '#F4F0F0',
-                                        // backgroundColor:this.state.backcolor,
+                        // // style={{ width: "100%",paddingTop: 10, marginRight: 5, zIndex: 2  }}
+                        // // > 
 
 
+                        <View style={{ backgroundColor: '#F4F0F0', height: 76 }}>
+                            <TouchableNativeFeedback borderLess={true} useForeground={true} onPressOut={(e) => this.getContacts( item.displayPic, item.contactName, e)}    delayPressOut={0} >
+                                {/* <TouchableNativeFeedback onPress={(e) => this.imageview(item.displayPic, e)} > onPressOut={(e) => this.getContacts( item.displayPic, item.contactName, e)} */}
 
-                                    }}>
+                                <View style={{width:"100%",height:76}}>
+                                <View style={{ width: 80, backgroundColor: "white", height: 76 }}>
+                                    <Image style={{
+                                        borderWidth: 1,
+                                        borderColor: '#F4F0F0',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        width: 55,
+                                        marginLeft: 10,
 
-                                        <View style={{ height: "98%", width: "100%" }}>
-                                            <View style={{    backgroundColor:this.state.backcolor, width: "65%", height: "45%" }}>
-                                                <Text style={{ fontFamily: "HelveticaNeue", fontWeight: "500", color: "#3A3A3A", marginTop: 4, fontSize: 16 }}> {item.contactName}</Text>
-                                            </View>
-                                            <View style={{    backgroundColor:this.state.backcolor, height: "45%", width: "35%", marginLeft: "65%", position: "absolute" }}>
-                                                <Text style={{ fontFamily: "HelveticaNeue", fontWeight: "normal", fontSize: 12, marginTop: 3, textAlign: "right", opacity: 0.5, paddingTop: 5 }}> {item.time}</Text>
-                                            </View>
-                                            <View style={{    backgroundColor:this.state.backcolor, height: "55%", width: "100%", position: "absolute", position: "relative", paddingTop: 2 }}>
-                                                <View style={{    backgroundColor:this.state.backcolor, height: 25, width: 20 }}><Image style={{ width: 17, height: 15, marginTop: 4, opacity: 0.5, marginLeft: 8 }} source={ticks} /></View>
-                                                <Text style={{ position: "absolute", fontFamily: "HelveticaNeue", fontWeight: "normal", opacity: 0.5, marginLeft: 25, marginTop: 3 }}> bye {item.contactName}</Text>
-                                            </View>
+                                        height: 55,
+                                        marginTop: 15,
 
+                                        borderRadius: 100,
+                                    }}
+                                        source={item.displayPic}
+
+                                        alt="please wait" />
+                                </View>
+                                {/* </TouchableNativeFeedback> */}
+                                <View style={{
+
+                                    flex: 1, flexDirection: "row",
+                                    paddingRight: 10,
+
+                                    marginLeft: 80,
+                                    float: "left",
+                                    position: "absolute",
+                                    height: 76,
+                                    backgroundColor: 'white',
+                                    // backgroundColor:this.state.backcolor,
+
+
+
+                                }}>
+
+                                    <View style={{ height: "100%", width: "100%", backgroundColor: "#F4F0F0" }}>
+                                        <View style={{ backgroundColor: this.state.backcolor, width: "65%", height: "45%" }}>
+                                            <Text style={{ fontFamily: "HelveticaNeue", fontWeight: "500", color: "#3A3A3A", marginTop: 11, fontSize: 16 }}> {item.contactName}</Text>
+                                        </View>
+                                        <View style={{ backgroundColor: this.state.backcolor, height: "50%", width: "35%", marginLeft: "65%", position: "absolute" }}>
+                                            <Text style={{ fontFamily: "HelveticaNeue", fontWeight: "normal", fontSize: 12, marginTop: 12, textAlign: "right", opacity: 0.5, paddingTop: 5 }}> {item.time}</Text>
+                                        </View>
+                                        <View style={{ backgroundColor: this.state.backcolor, height: "53%", width: "100%", position: "absolute", position: "relative", paddingTop: 2 }}>
+                                            <Image style={{ width: 17, height: 15, marginTop: 8, opacity: 0.5, marginLeft: 8 }} source={ticks} />
+                                            <Text style={{ position: "absolute", fontFamily: "HelveticaNeue", fontWeight: "normal", opacity: 0.5, marginLeft: 25, marginTop: 7 }}> bye {item.contactName}</Text>
                                         </View>
 
                                     </View>
-                                </View>
-                                </Ripple>
 
                                 </View>
-
+                                </View>
                             </TouchableNativeFeedback>
-                        
+                        </View>
+
+                        /* </View> */
+
+                        // </TouchableOpacity>
+
 
 
                     } />
@@ -408,14 +421,14 @@ export default class FirstScreen extends Component {
                                 justifyContent: 'space-between',
                             }}>
                                 <View style={{ width: 150, height: 53, backgroundColor: '#075e54', elevation: 0 }}>
-                                    <Text style={{ paddingLeft: 10, paddingTop: 15, fontSize: 17, width: "80%", fontWeight: "500", fontFamily: "HelveticaNeue", color: "white" }}>WhatsApp</Text>
+                                    <Text style={{ paddingLeft: 10, paddingTop: 16, fontSize: 20, width: "80%", fontWeight: "500", fontFamily: "HelveticaNeue", color: "white" }}>WhatsApp</Text>
 
                                 </View>
 
                                 <View style={{ width: 80, height: 53, backgroundColor: '#075e54' }}>
                                     <View style={{ height: 40, width: 80, paddingTop: 15, paddingRight: 10 }}>
-                                        <Icon2 style={{ paddingRight: 5, marginTop: 2, marginLeft: 18 }} size={18} fontWeight={5} name="search" color={"#fff"} />
-                                        <Image style={{ height: 16, width: 16, marginTop: 18.5, position: "absolute", marginLeft: 58 }} source={menu} ></Image>
+                                        <Icon2 style={{ paddingRight: 5, marginTop: 5, marginLeft: 18 }} size={18} fontWeight={5} name="search" color={"#fff"} />
+                                        <Image style={{ height: 16, width: 16, marginTop: 21.5, position: "absolute", marginLeft: 58 }} source={menu} ></Image>
                                     </View>
                                 </View>
                             </View>
